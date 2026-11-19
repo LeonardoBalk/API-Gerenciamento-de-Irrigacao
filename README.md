@@ -85,10 +85,11 @@ npm install
 ```
 
 ### 3. Configurar o `.env`
-Crie um arquivo `.env` com o seguinte conteúdo:
+Copie `.env.example` para `.env` e gere um segredo aleatório para `JWT_SECRET`:
+```bash
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
 ```
-JWT_SECRET=secret_key
-```
+Cole o resultado no `.env`, sem compartilhar o arquivo. Em produção, configure a mesma variável no serviço de hospedagem. Alterar o segredo invalida os tokens emitidos anteriormente.
 
 ### 4. Iniciar o servidor
 ```bash
